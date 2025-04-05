@@ -30,6 +30,7 @@ To successfully build and publish your project with Lovable, you must **manually
 ```
 
 ### Why this is necessary:
+- The `dev` script is required for development
 - The `build` script is required for production builds
 - The `build:dev` script is required for Lovable development builds
 - These scripts cannot be added automatically as package.json is read-only in the editor
