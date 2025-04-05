@@ -8,6 +8,7 @@ export default defineConfig({
   base: '/modern-coast-properties/',
   server: {
     port: 8080,
-    open: true
+    open: true,
+    host: true // Allow connections from all hosts
   }
 })
