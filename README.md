@@ -3,23 +3,9 @@
 
 A coastal real estate website showcasing premium waterfront properties.
 
-## Development
+## IMPORTANT: Required for Development, Building and Publishing
 
-Since the package.json is read-only and cannot be directly modified, use one of the following methods to start the development server:
-
-### Method 1: Using the custom start script (Recommended)
-```
-node start-dev.js
-```
-
-### Method 2: Running Vite directly
-```
-npx vite --port 8080
-```
-
-## IMPORTANT: Required for Building and Publishing
-
-To successfully build and publish your project with Lovable, you must **manually add** the following scripts to your local package.json file:
+Since the package.json is read-only in the Lovable editor, you must **manually add** the following scripts to your local package.json file:
 
 ```json
 "scripts": {
@@ -30,10 +16,24 @@ To successfully build and publish your project with Lovable, you must **manually
 ```
 
 ### Why this is necessary:
-- The `dev` script is required for development
+- The `dev` script is required for running the development server
 - The `build` script is required for production builds
 - The `build:dev` script is required for Lovable development builds
 - These scripts cannot be added automatically as package.json is read-only in the editor
+
+## Development
+
+You have two options to start the development server:
+
+### Option 1: Using the custom start script (Recommended)
+```
+node start-dev.js
+```
+
+### Option 2: Running Vite directly
+```
+npx vite --port 8080
+```
 
 ## Building for Production
 ```

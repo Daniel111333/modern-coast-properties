@@ -21,6 +21,15 @@ if (!fs.existsSync(vitePath)) {
   process.exit(1);
 }
 
+console.log('\n=== IMPORTANT NOTICE ===');
+console.log('If you\'re experiencing "Missing script" errors when trying to publish or build:');
+console.log('You must manually add the following scripts to your package.json file:');
+console.log('  "dev": "vite",');
+console.log('  "build": "vite build",');
+console.log('  "build:dev": "vite build --mode development"');
+console.log('The package.json file is read-only in the Lovable editor, so these changes must be made locally.');
+console.log('======================\n');
+
 console.log('Vite installation found. Starting development server...');
 
 // Run Vite directly without using npm scripts
