@@ -18,7 +18,7 @@ npx vite --port 8080
 ```
 
 ### Method 3: Add scripts to package.json manually
-You need to manually add the following scripts to your package.json file:
+You need to manually add the following scripts to your local copy of package.json file:
 ```json
 "scripts": {
   "dev": "vite",
