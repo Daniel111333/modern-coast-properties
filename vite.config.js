@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/modern-coast-properties/',
   server: {
-    port: 8080
+    port: 8080,
+    open: true
   }
 })
