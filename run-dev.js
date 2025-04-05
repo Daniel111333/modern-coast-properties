@@ -7,23 +7,42 @@ const path = require('path');
 const fs = require('fs');
 
 console.log('\n=== Modern Coast Properties ===');
-console.log('Starting development server directly...\n');
+console.log('Starting development server...\n');
+
+// Determine the correct project directory
+let projectDir = process.cwd();
+if (fs.existsSync(path.join(projectDir, 'modern-coast-properties'))) {
+  // If we're at the root and the project is in a subdirectory
+  projectDir = path.join(projectDir, 'modern-coast-properties');
+  console.log(`Detected project directory: ${projectDir}`);
+}
 
 // Path to local Vite installation
-const vitePath = path.join(process.cwd(), 'node_modules', '.bin', 'vite');
+const vitePath = path.join(projectDir, 'node_modules', '.bin', 'vite');
+const alternativeVitePath = path.join(process.cwd(), 'node_modules', '.bin', 'vite');
 
 // Check if Vite is installed
+let viteExecutable = vitePath;
 if (!fs.existsSync(vitePath)) {
-  console.error('\nError: Vite not found. Please install dependencies with npm install first.');
-  console.error('Then try running this script again.\n');
-  process.exit(1);
+  if (fs.existsSync(alternativeVitePath)) {
+    viteExecutable = alternativeVitePath;
+  } else {
+    console.error('\nError: Vite not found. Please install dependencies with npm install first.');
+    console.error('Then try running this script again.\n');
+    process.exit(1);
+  }
 }
 
 // Run Vite directly without using npm scripts
+console.log(`Launching Vite from: ${viteExecutable}`);
 const viteProcess = spawn(
-  vitePath,
+  viteExecutable,
   ['--port', '8080'],
-  { stdio: 'inherit', shell: true }
+  { 
+    stdio: 'inherit', 
+    shell: true,
+    cwd: projectDir 
+  }
 );
 
 viteProcess.on('error', (error) => {
