@@ -26,6 +26,7 @@ let viteExecutable = vitePath;
 if (!fs.existsSync(vitePath)) {
   if (fs.existsSync(alternativeVitePath)) {
     viteExecutable = alternativeVitePath;
+    console.log(`Using alternative Vite path: ${viteExecutable}`);
   } else {
     console.error('\nError: Vite not found. Please install dependencies with npm install first.');
     console.error('Then try running this script again.\n');
@@ -37,7 +38,7 @@ if (!fs.existsSync(vitePath)) {
 console.log(`Launching Vite from: ${viteExecutable}`);
 const viteProcess = spawn(
   viteExecutable,
-  [], // No need to specify port, it will use the one from vite.config.js
+  ['--port', '8080'], // Explicitly set port to 8080
   { 
     stdio: 'inherit', 
     shell: true,
