@@ -37,7 +37,7 @@ if (!fs.existsSync(vitePath)) {
 console.log(`Launching Vite from: ${viteExecutable}`);
 const viteProcess = spawn(
   viteExecutable,
-  ['--port', '8080'],
+  [], // No need to specify port, it will use the one from vite.config.js
   { 
     stdio: 'inherit', 
     shell: true,
