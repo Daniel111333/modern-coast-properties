@@ -17,17 +17,22 @@ node start-dev.js
 npx vite --port 8080
 ```
 
-### Method 3: Add scripts to package.json manually
-You need to manually add the following scripts to your local copy of package.json file:
+## IMPORTANT: Required for Building and Publishing
+
+To successfully build and publish your project with Lovable, you must **manually add** the following scripts to your local package.json file:
+
 ```json
 "scripts": {
   "dev": "vite",
+  "build": "vite build",
   "build:dev": "vite build --mode development"
 }
 ```
 
-## IMPORTANT: Required for Lovable Build
-The `build:dev` script is required for Lovable to build your project. Since you cannot modify package.json directly through the editor, you must add this script manually to your local copy of package.json.
+### Why this is necessary:
+- The `build` script is required for production builds
+- The `build:dev` script is required for Lovable development builds
+- These scripts cannot be added automatically as package.json is read-only in the editor
 
 ## Building for Production
 ```
