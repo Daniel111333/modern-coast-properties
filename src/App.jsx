@@ -1,11 +1,11 @@
 
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import PropertyFilter from './components/PropertyFilter'
-import PropertyListing from './components/PropertyListing'
-import propertyData from './data/properties'
+import { useState } from 'react';
+import './App.css';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import PropertyFilter from './components/PropertyFilter';
+import PropertyListing from './components/PropertyListing';
+import propertyData from './data/properties';
 
 function App() {
   const [selectedPage, setSelectedPage] = useState('inicio');
@@ -42,7 +42,6 @@ function App() {
         <div className="contact-section">
           <h1>Contacto</h1>
           <p>Contacte con nosotros para más información sobre nuestras propiedades.</p>
-          {/* Formulario de contacto iría aquí */}
         </div>
       )}
       
@@ -50,7 +49,7 @@ function App() {
         <p>&copy; 2025 Global Costa Invest. Todos los derechos reservados.</p>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
