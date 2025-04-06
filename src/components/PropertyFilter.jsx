@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import propertyData from '../data/properties';
 
 function PropertyFilter({ setFilteredProperties }) {
   const [location, setLocation] = useState('Cualquier ubicación');
@@ -8,7 +9,17 @@ function PropertyFilter({ setFilteredProperties }) {
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
 
   const handleSearch = () => {
-    // Aquí implementaríamos la lógica de filtrado real
+    let filtered = [...propertyData];
+    
+    if (location !== 'Cualquier ubicación') {
+      filtered = filtered.filter(property => property.location === location);
+    }
+    
+    if (propertyType !== 'Cualquier tipo') {
+      filtered = filtered.filter(property => property.type === propertyType);
+    }
+    
+    setFilteredProperties(filtered);
     console.log("Buscando:", { location, propertyType, bedrooms });
   };
 
